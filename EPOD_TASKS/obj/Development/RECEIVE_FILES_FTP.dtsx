@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/17/2019 8:14:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRAVAN-PC"
+  DTS:CreatorName="SRAVAN-PC\sravan"
+  DTS:DTSID="{9CF33CA8-D7BF-4749-9813-C5E767A10BD8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="RECEIVE_FILES_FTP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{EBEC4B83-BB96-4AD9-806E-5C32BF600238}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOCAL_PATH]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6C698C3B-48DF-46C1-AE53-7AAA5755379D}"
+      DTS:ObjectName="LOCAL_PATH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\sravan\Desktop\LOCAL_PATH" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{65ED4C21-2183-4156-B547-5F12B570CD73}"
+      DTS:ObjectName="LOCAL_PATH">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\sravan\Desktop\LOCAL_PATH</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{11A9F6D7-F193-4D6B-84F1-A04D8501060A}"
+      DTS:ObjectName="REMOTE_PATH">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">/FTP/METALDOOR/*.TXT</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{5F2398D4-51B5-4444-B22E-3B341E3DFC05}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{A69E8312-8753-4AD0-92D9-5ABA93455BE6}"
+          TaskOperationType="Receive"
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="$Package::LOCAL_PATH"
+          TaskIsRemotePathVar="True"
+          TaskRemotePath="$Package::REMOTE_PATH"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\FTP Task"
+          TopLeft="225.500003746578,52.6058830135834" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
